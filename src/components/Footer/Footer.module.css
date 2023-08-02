@@ -1,0 +1,10 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: antiquewhite;
+    border-bottom: 3px solid rgb(139, 119, 7);
+}

@@ -1,0 +1,28 @@
+.header{
+    background-color: rgb(2, 2, 2);
+    border-bottom: 3px solid rgb(139, 119, 7);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    font-size: 25px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header span{
+    font-size: 40px;
+    color: rgb(139, 119, 7);
+    font-weight: 600;
+}
+
+.header nav{
+    margin-right: 16px;
+}
+
+.header a{
+    text-decoration: none;
+    color: rgb(250, 235, 215);
+    padding-inline: 10px;
+}
