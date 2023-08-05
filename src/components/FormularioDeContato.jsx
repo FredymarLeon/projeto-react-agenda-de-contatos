@@ -1,22 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState} from "react";
 
-function FormularioDeContato({onAdicionarContato}){
-    const [nome, setNome]= useState("");
-    const [email, setEmail]= useState("");
-    const [telefone, setTelefone]= useState("");
-    const handleSubmit = (e)=>{
+function FormularioDeContato({onAdicionarContato, onEditarContato, onApagarContato}){
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const handleSubmit=(e)=>{
         e.preventDefault();
-        const contato= {nome, email, telefone};
-        fetch("http://localhost:3000/contatos",{
-            method:"POST",
-            headers: {"": ""},//No se
-            body: JSON.stringify(contato)
-        })
+        const contato = {nome, email, telefone};
+        fetch("http://localhost:5000/contatos", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(contato)})
         .then(response=>{
             if(response.ok){
                 return response.json();
             } else{
-                throw new Error("Error ao adicionar o contato");
+                throw new Error("Erro ao adicionar o contato");
             }
         })
         .then(data=>{
@@ -29,31 +25,28 @@ function FormularioDeContato({onAdicionarContato}){
             console.log(error);
         });
     };
-    return(
-        <form onSubmit={handleSubmit} className="add-contact-form">
+    return (
+        <form onSubmit={handleSubmit}className="add-contact-form">
             <h2 className="subtitle">Adicionar Contato</h2>
-
             <div className="form-group">
                 <label htmlFor="nome" className="label">Nome</label>
                 <input
                     type="text"
                     value={nome}
-                    onChange={(e)=>setNome(e.target.value)}
-                    className="input"
+                    onChange={(e)=>setNome(e.target.value)}   className="input"
                     id="nome"
-                    autoComplete="none"
-                />
+                    autoComplete="none">
+                </input>
             </div>
             <div className="form-group">
                 <label htmlFor="email" className="label">Email</label>
                 <input
                     type="text"
                     value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="input"
                     id="email"
-                    autoComplete="none"
-                />
+                    autoComplete="none"></input>
             </div>
             <div className="form-group">
                 <label htmlFor="telefone" className="label">Telefone</label>
@@ -63,11 +56,12 @@ function FormularioDeContato({onAdicionarContato}){
                     onChange={(e) => setTelefone(e.target.value)}
                     className="input"
                     id="telefone"
-                    autoComplete="none"
-                />
+                    autoComplete="none">
+                </input>
             </div>
             <button type="submit" className="button">Adicionar</button>
         </form>
-    );
-}
+    )
+};
+
 export default FormularioDeContato;

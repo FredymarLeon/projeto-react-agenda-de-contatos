@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
-import FormularioDeContato from "../FormularioDeContato/FormularioDeContato";
+import FormularioDeContato from "./FormularioDeContato";
 
 function ListaDeContatos(){
     const [contatos, setContatos]= useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:3000/contatos")
-        .then((res)=> res.json())
+        fetch("http://localhost:5000/contatos")
+        .then((res)=> res.json()) 
         .then((data)=> setContatos(data))
         .catch((error)=> console.log(error));
     }, []);
@@ -33,6 +33,7 @@ function ListaDeContatos(){
                 ))}
             </ul>
         </div>
+
     );
 }
 
