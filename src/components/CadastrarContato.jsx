@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function FormularioDeContato({onAdicionarContato, onEditarContato, onApagarContato}){
+function CadastrarContato({onAdicionarContato,}){
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
@@ -64,4 +64,4 @@ function FormularioDeContato({onAdicionarContato, onEditarContato, onApagarConta
     )
 };
 
-export default FormularioDeContato;
+export default CadastrarContato;
